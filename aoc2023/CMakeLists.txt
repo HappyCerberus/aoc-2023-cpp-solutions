@@ -19,3 +19,4 @@ else()
 endif()
 
 add_subdirectory(demo)
+add_subdirectory(day01)
