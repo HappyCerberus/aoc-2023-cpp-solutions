@@ -6,23 +6,23 @@ module;
 export module parsing;
 
 export namespace parsing {
-struct Marble {
+struct Cube {
   enum Type { RED, GREEN, BLUE } type;
   int64_t count;
-  friend std::istream &operator>>(std::istream &s, Marble &marble);
+  friend std::istream &operator>>(std::istream &, Cube &);
 };
 
 struct Game {
   int64_t id;
-  std::unordered_map<Marble::Type, int64_t> max;
-  friend std::istream &operator>>(std::istream &s, Game &game);
+  std::unordered_map<Cube::Type, int64_t> max;
+  friend std::istream &operator>>(std::istream &, Game &game);
   int64_t power() const;
 };
 } // namespace parsing
 
 namespace parsing {
 int64_t Game::power() const {
-  return max.at(Marble::RED) * max.at(Marble::GREEN) * max.at(Marble::BLUE);
+  return max.at(Cube::RED) * max.at(Cube::GREEN) * max.at(Cube::BLUE);
 }
 
 std::istream &operator>>(std::istream &s, Game &game) {
@@ -35,14 +35,14 @@ std::istream &operator>>(std::istream &s, Game &game) {
     return s;
   s.ignore(1); // ':'
 
-  // We have a game, now read the sets of marbles.
+  // We have a game, now read the sets of cubes.
   game.max.clear();
-  Marble marble;
-  while (s >> marble) {
-    game.max[marble.type] = std::max(game.max[marble.type], marble.count);
+  Cube cube;
+  while (s >> cube) {
+    game.max[cube.type] = std::max(game.max[cube.type], cube.count);
 
     auto delim = s.get();
-    // Next marble or set of marbles (it actually doesn't matter)
+    // Next cube or set of cubes (it actually doesn't matter)
     if (delim == ',' || delim == ';')
       continue;
     // End of this game
@@ -60,9 +60,9 @@ std::istream &operator>>(std::istream &s, Game &game) {
   return s;
 }
 
-std::istream &operator>>(std::istream &s, Marble &marble) {
-  // Number of marbles
-  if (not(s >> marble.count))
+std::istream &operator>>(std::istream &s, Cube &cube) {
+  // Number of cubes
+  if (not(s >> cube.count))
     return s;
 
   // Ignore whitespace
@@ -73,15 +73,15 @@ std::istream &operator>>(std::istream &s, Marble &marble) {
   // number of characters.
   switch (s.peek()) {
   case 'b':
-    marble.type = Marble::BLUE;
+    cube.type = Cube::BLUE;
     s.ignore(4);
     break;
   case 'g':
-    marble.type = Marble::GREEN;
+    cube.type = Cube::GREEN;
     s.ignore(5);
     break;
   case 'r':
-    marble.type = Marble::RED;
+    cube.type = Cube::RED;
     s.ignore(3);
     break;
   default:

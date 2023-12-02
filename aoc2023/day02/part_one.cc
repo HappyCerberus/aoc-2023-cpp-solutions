@@ -15,8 +15,8 @@ int64_t possible_games(std::span<const char> games) {
   std::ispanstream s(games);
   return std::ranges::fold_left(
       std::views::istream<Game>(s), 0z, [](int64_t acc, auto &game) {
-        if (game.max[Marble::RED] <= 12 && game.max[Marble::GREEN] <= 13 &&
-            game.max[Marble::BLUE] <= 14)
+        if (game.max[Cube::RED] <= 12 && game.max[Cube::GREEN] <= 13 &&
+            game.max[Cube::BLUE] <= 14)
           return acc + game.id;
 
         return acc;
