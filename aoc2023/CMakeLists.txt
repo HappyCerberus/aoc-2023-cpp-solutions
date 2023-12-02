@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_GENERATOR "Ninja")
-add_compile_options(-pedantic -Wall -Wextra -stdlib=libstdc++)
+add_compile_options(-pedantic -Wall -Wextra -stdlib=libstdc++ -Werror)
 
 # Use GCC standard library from GCC 14.0.0
 include_directories(BEFORE SYSTEM "/usr/local/include/c++/14.0.0")
@@ -20,3 +20,4 @@ endif()
 
 add_subdirectory(demo)
 add_subdirectory(day01)
+add_subdirectory(day02)
