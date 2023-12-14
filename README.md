@@ -15,3 +15,4 @@ This repository contains solutions for Advent of Code 2023, for commentary and e
 - [Day 11](https://open.substack.com/pub/simontoth/p/daily-bite-of-c-advent-of-code-day-0ff?r=1g4l8a&utm_campaign=post&utm_medium=web)
 - [Day 12](https://open.substack.com/pub/simontoth/p/daily-bite-of-c-advent-of-code-day-c1f?r=1g4l8a&utm_campaign=post&utm_medium=web)
 - [Day 13](https://open.substack.com/pub/simontoth/p/daily-bite-of-c-advent-of-code-day-c18?r=1g4l8a&utm_campaign=post&utm_medium=web)
+- [Day 14](https://open.substack.com/pub/simontoth/p/daily-bite-of-c-advent-of-code-day-792?r=1g4l8a&utm_campaign=post&utm_medium=web)
